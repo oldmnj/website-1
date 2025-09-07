@@ -1,9 +1,9 @@
+/* ===== 通用重置 & 站点基础 ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     background: linear-gradient(135deg, #6a11cb, #2575fc);
     min-height: 100vh;
@@ -15,7 +15,6 @@ body {
     justify-content: center;
     padding: 20px;
 }
-
 .container {
     width: 100%;
     max-width: 800px;
@@ -27,7 +26,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     text-align: center;
 }
-
 h1 {
     font-size: 3.5rem;
     margin-bottom: 40px;
@@ -35,7 +33,6 @@ h1 {
     letter-spacing: 2px;
     font-family: 'Ma Shan Zheng', cursive;
 }
-
 h6 {
     font-size: 1.2rem;
     margin-bottom: 40px;
@@ -43,34 +40,13 @@ h6 {
     letter-spacing: 1px;
     font-family: 'Ma Shan Zheng', cursive;
 }
-
 .nav-links {
     display: flex;
     justify-content: center;
     gap: 30px;
     margin-bottom: 50px;
 }
-
-.nav-btn {
-    padding: 15px 35px;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    border-radius: 10px;
-    font-size: 1.8rem;
-    font-family: 'Ma Shan Zheng', cursive;
-    color: #fff;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.nav-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
+.nav-btn,
 .qgroup {
     padding: 15px 35px;
     background: rgba(255, 255, 255, 0.2);
@@ -84,14 +60,86 @@ h6 {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
+.nav-btn:hover,
+.qgroup:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
 
-/* 装饰元素 */
+/* ===== 资源卡片专用（与 p2.html 完全对应） ===== */
+.resource-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin: 20px 0;
+}
+.resource-card {
+    flex: 1 1 260px;          /* 自动换行 & 等宽 */
+    max-width: 300px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.resource-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.18);
+}
+.resource-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    font-family: 'Ma Shan Zheng', cursive;
+    letter-spacing: 1px;
+}
+.resource-card p {
+    margin: 8px 0;
+    font-size: 1rem;
+    line-height: 1.45;
+}
+.extract-code {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #fffa70;
+    letter-spacing: 0.5px;
+}
+.download-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+.download-btn {
+    padding: 10px 24px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.05rem;
+    font-family: 'Ma Shan Zheng', cursive;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.download-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== 装饰元素 & 动画 ===== */
 .decoration {
     position: absolute;
     opacity: 0.6;
     z-index: -1;
 }
-
 .circle-1 {
     width: 150px;
     height: 150px;
@@ -101,7 +149,6 @@ h6 {
     left: 15%;
     animation: float 8s infinite ease-in-out;
 }
-
 .circle-2 {
     width: 100px;
     height: 100px;
@@ -111,37 +158,96 @@ h6 {
     right: 15%;
     animation: float 6s infinite ease-in-out reverse;
 }
-
 @keyframes float {
     0%, 100% { transform: translateY(0) scale(1); }
     50% { transform: translateY(-20px) scale(1.05); }
 }
 
-/* 响应式设计 */
+/* ===== 响应式 ===== */
 @media (max-width: 768px) {
-    .container {
-        padding: 30px 20px;
-    }
+    .container { padding: 30px 20px; }
+    h1 { font-size: 2.8rem; }
+    .nav-links { flex-direction: column; gap: 20px; }
+    .nav-btn, .qgroup { font-size: 1.5rem; padding: 12px 25px; }
+    .resource-grid { gap: 15px; }
+    .resource-card { flex: 1 1 100%; max-width: 100%; }
+    .circle-1, .circle-2 { display: none; }
+}
 
-    h1 {
-        font-size: 2.8rem;
-    }
+/* ===== 免责声明独立页 ===== */
+body.disclaimer-page{
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  min-height:100vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(8px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+.modal-box{
+  width:90%;
+  max-width:520px;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:16px;
+  padding:35px 30px;
+  text-align:center;
+  color:#fff;
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
+}
+.modal-box h2{
+  font-size:2rem;
+  margin-bottom:20px;
+  font-family:'Ma Shan Zheng',cursive;
+  letter-spacing:1px;
+}
+.modal-box p{
+  font-size:1rem;
+  line-height:1.6;
+  margin-bottom:30px;
+}
+.modal-buttons{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+}
+.modal-btn{
+  padding:12px 30px;
+  border:none;
+  border-radius:10px;
+  font-size:1.2rem;
+  font-family:'Ma Shan Zheng',cursive;
+  cursor:pointer;
+  transition:all .3s ease;
+}
+.modal-btn.primary{
+  background:rgba(255,255,255,.25);
+  color:#fff;
+}
+.modal-btn.primary:hover{
+  background:rgba(255,255,255,.35);
+  transform:translateY(-3px);
+}
+.modal-btn.secondary{
+  background:rgba(255,255,255,.1);
+  color:#ddd;
+}
+.modal-btn.secondary:hover{
+  background:rgba(255,255,255,.2);
+}
 
-    .nav-links {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .nav-btn {
-        font-size: 1.5rem;
-        padding: 12px 25px;
-    }
-
-    .qgroup {
-        font-size: 1.5rem;
-    }
-
-    .circle-1, .circle-2 {
-        display: none;
-    }
+/* 小屏 */
+@media (max-width: 600px){
+  .modal-box{padding:25px 20px;}
+  .modal-buttons{flex-direction:column;gap:12px;}
 }

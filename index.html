@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oldmnj的资源网</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>免责声明 - Oldmnj资源网</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <h1>Oldmnj的资源网</h1>
-        <h6>优质资源分享平台</h6>
-        
-        <div class="nav-links">
-            <a href="p1.html" class="nav-btn">优质网站</a>
-            <a href="p2.html" class="nav-btn">资源分享</a>
-            <a href="p3.html" class="nav-btn">敬请期待</a>
-            <a href="p4.html" class="nav-btn">全栈教学</a>
-            <a href="p5.html" class="nav-btn">关于我们</a>
-        </div>
-
-        <div class="disclaimer">
-            <h3>免责声明</h3>
-            <p>本站资源仅供学习交流使用，所有资源来自网络收集，本站不对资源内容负责。如有侵权，请联系删除：<a href="mailto:qingshi0@hotmail.com">qingshi0@hotmail.com</a></p>
-            <button onclick="acceptDisclaimer()" class="qgroup">我已阅读并同意</button>
-        </div>
+<body class="disclaimer-page">
+  <div class="modal-overlay">
+    <div class="modal-box">
+      <h2>免责声明</h2>
+      <p>本站所有资源均来自网络收集，仅供学习交流使用。如有侵权，请联系删除：qingshi0@hotmail.com<br>
+         使用本站资源造成的任何风险，本站概不负责。</p>
+      <div class="modal-buttons">
+        <button id="agreeBtn" class="modal-btn primary">同意并进入</button>
+        <button id="disagreeBtn" class="modal-btn secondary">不同意</button>
+      </div>
     </div>
+  </div>
 
-    <div class="decoration circle-1"></div>
-    <div class="decoration circle-2"></div>
-
-    <script src="script.js"></script>
+<script>
+  document.getElementById('agreeBtn').onclick = () => {
+    localStorage.setItem('disclaimerAgreed','1');
+    location.href = 'a.html';
+  };
+  document.getElementById('disagreeBtn').onclick = () => {
+    alert('您必须同意条款才能使用本站！');
+  };
+</script>
 </body>
 </html>
