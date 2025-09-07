@@ -6,12 +6,10 @@
     <title>Oldmnj的资源网</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
-    <script>
-    /* 门禁：直接打a.html而未同意过 → 回index */
-    if(!localStorage.getItem('disclaimerAgreed')){
-        location.replace('index.html');
+    /* a.html <head> 内 */
+    if (!localStorage.getItem('disclaimerAgreed')) {
+        location.replace('/index.html');
     }
-    </script>
 </head>
 <body>
     <div class="container">
@@ -25,12 +23,7 @@
             <a href="p4.html" class="nav-btn">全栈教学</a>
             <a href="p5.html" class="nav-btn">关于我们</a>
         </div>
-
-        <div class="disclaimer">
-            <h3>免责声明</h3>
-            <p>本站资源仅供学习交流使用，所有资源来自网络收集，本站不对资源内容负责。如有侵权，请联系删除：<a href="mailto:qingshi0@hotmail.com">qingshi0@hotmail.com</a></p>
-            <button onclick="acceptDisclaimer()" class="qgroup">我已阅读并同意</button>
-        </div>
+        <p>联系邮箱：qingshi0@hotmail.com</p>
     </div>
 
     <div class="decoration circle-1"></div>

@@ -251,3 +251,58 @@ body.disclaimer-page{
   .modal-box{padding:25px 20px;}
   .modal-buttons{flex-direction:column;gap:12px;}
 }
+
+/* ===== 其他页面网格统一补全 ===== */
+.website-grid,
+.tutorial-grid,
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin: 20px 0;
+}
+.website-card,
+.tutorial-card,
+.about-section {
+    flex: 1 1 260px;
+    max-width: 300px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.website-card:hover,
+.tutorial-card:hover,
+.about-section:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.18);
+}
+.construction,
+.stats,
+.thanks-logos {
+    text-align: center;
+    margin-top: 20px;
+}
+.construction-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+.stat-item {
+    display: inline-block;
+    margin: 10px 15px;
+}
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fffa70;
+}
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}

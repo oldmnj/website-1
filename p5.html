@@ -6,6 +6,10 @@
     <title>关于我们 - Oldmnj的资源网</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <script>
+    /* === 全局门禁：未同意条款一律踢回 index === */
+    if (!localStorage.getItem('disclaimerAgreed')) location.replace('/index.html');
+    </script>
 </head>
 <body>
     <div class="container">
@@ -84,7 +88,7 @@
             </div>
         </div>
         
-        <a href="index.html" class="nav-btn">返回首页</a>
+        <a href="a.html" class="nav-btn">返回首页</a>
     </div>
 
     <div class="decoration circle-1"></div>
