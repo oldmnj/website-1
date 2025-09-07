@@ -1,0 +1,42 @@
+{
+  "name": "oldmnj-resources",
+  "version": "1.0.0",
+  "description": "Oldmnj的资源网 - 优质资源分享平台",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "npm run build && git add . && git commit -m 'Deploy updates' && git push origin main"
+  },
+  "keywords": [
+    "resources",
+    "tutorial",
+    "full-stack",
+    "development",
+    "sharing"
+  ],
+  "author": "oldmnj",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "compression": "^1.7.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oldmnj/oldmnj-resources.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oldmnj/oldmnj-resources/issues"
+  },
+  "homepage": "https://oldmnj-resources.netlify.app"
+}
