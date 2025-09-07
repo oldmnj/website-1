@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>投稿 - Oldmnj资源网</title>
+  <link rel="stylesheet" href="style.css">
+  <script>if(!localStorage.getItem('disclaimerAgreed'))location.replace('/index.html');</script>
+</head>
+<body>
+  <div class="container">
+    <h1>资源投稿</h1>
+    <form id="submitForm" class="submit-form">
+      <input name="title" type="text" placeholder="资源名称 *" required>
+      <input name="url" type="url" placeholder="下载链接 *" required>
+      <input name="code" type="text" placeholder="提取码（无则留空）">
+      <textarea name="desc" rows="4" placeholder="简单介绍 *" required></textarea>
+      <button type="submit" class="nav-btn">提交投稿</button>
+    </form>
+    <p id="msg" style="margin-top:15px;"></p>
+    <a href="a.html" class="nav-btn">返回首页</a>
+  </div>
+  <script src="submit.js"></script>
+</body>
+</html>

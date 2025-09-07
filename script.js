@@ -111,3 +111,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+/* ------ 本站资源搜索 ------ */
+const searchBox = document.getElementById('siteSearch');
+if (searchBox) {
+  searchBox.addEventListener('input', e => {
+    const kw = e.target.value.trim().toLowerCase();
+    // 遍历所有卡片
+    document.querySelectorAll('.website-card, .resource-card, .tutorial-card').forEach(card => {
+      const txt = (card.textContent || '').toLowerCase();
+      card.style.display = kw === '' || txt.includes(kw) ? 'block' : 'none';
+    });
+  });
+}
+
+/* ===== 投稿提交脚本 ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('submitForm');
+  if (!form) return; // 只在 submit.html 生效
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form));
+    const res = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    const msg = document.getElementById('msg');
+    if (res.ok) {
+      msg.textContent = '投稿成功，正在审核…';
+      form.reset();
+    } else {
+      msg.textContent = '投稿失败，请重试';
+    }
+  });
+});
+

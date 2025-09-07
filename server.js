@@ -119,3 +119,20 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+
+const fs = require('fs');
+const path = require('path');
+
+// 投稿 API
+app.post('/api/submit', express.json(), (req, res) => {
+  const { title, url, code = '', desc } = req.body;
+  if (!title || !url || !desc) return res.status(400).send('字段不完整');
+
+  const file = path.join(__dirname, 'submissions.json');
+  let list = [];
+  if (fs.existsSync(file)) list = JSON.parse(fs.readFileSync(file, 'utf8'));
+  list.push({ title, url, code, desc, date: new Date().toISOString() });
+  fs.writeFileSync(file, JSON.stringify(list, null, 2));
+
+  res.json({ success: true });
+});

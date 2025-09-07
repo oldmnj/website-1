@@ -1,12 +1,11 @@
 oldmnj-resources/
-├── index.html
-├── p1.html
-├── p2.html
-├── p3.html
-├── p4.html
-├── p5.html
-├── style.css
-├── script.js
-├── package.json
-├── server.js
-└── README.md
+├─ index.html          ← 条款入口
+├─ a.html              ← 真正首页
+├─ submit.html         ← 投稿表单（新）
+├─ review.html         ← 审核列表（新，可选）
+├─ p1~p5.html          ← 顶部加门禁 + 返回首页指向 a.html
+├─ style.css           ← 追加①按钮防重叠 ②搜索框样式
+├─ script.js           ← 追加实时搜索脚本
+├─ submit.js           ← 投稿提交脚本（新）
+├─ server.js           ← 追加 /api/submit & /api/submissions
+└─ submissions.json    ← 投稿数据（自动创建，无需手工建）

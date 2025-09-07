@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>审核投稿</title>
+  <link rel="stylesheet" href="style.css">
+  <script>if(!localStorage.getItem('disclaimerAgreed'))location.replace('/index.html');</script>
+</head>
+<body>
+  <div class="container">
+    <h1>待审核投稿</h1>
+    <div id="list"></div>
+    <a href="a.html" class="nav-btn">返回首页</a>
+  </div>
+  <script>
+    fetch('/api/submissions')
+      .then(r => r.json())
+      .then(data => {
+        const box = document.getElementById('list');
+        if (!data.length) box.innerHTML = '<p>暂无投稿</p>';
+        data.forEach((item, idx) => {
+          box.insertAdjacentHTML('beforeend', `
+            <div class="resource-card">
+              <h3>${item.title}</h3>
+              <p>${item.desc}</p>
+              <p>链接：<a href="${item.url}" target="_blank">${item.url}</a></p>
+              ${item.code ? `<p>提取码：${item.code}</p>` : ''}
+              <p>日期：${item.date}</p>
+            </div>
+          `);
+        });
+      });
+  </script>
+  <script src="review.js"></script>
+</body>
+</html>
