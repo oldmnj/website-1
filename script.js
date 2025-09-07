@@ -147,3 +147,31 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+/* ===== 全局实时搜索 ===== */
+(function () {
+  const box = document.getElementById('siteSearch');
+  if (!box) return; // 当前页无搜索框就跳过
+  box.addEventListener('input', e => {
+    const kw = e.target.value.trim().toLowerCase();
+    // 统一类名：所有卡片都用 .searchable
+    document.querySelectorAll('.searchable').forEach(card => {
+      const txt = (card.textContent || '').toLowerCase();
+      card.style.display = kw === '' || txt.includes(kw) ? 'block' : 'none';
+    });
+  });
+})();
+
+<script>
+/* 实时搜索：只要有 searchable 类的卡片都会被扫描 */
+(function(){
+  const input = document.getElementById('siteSearch');
+  if (!input) return;               // 没搜索框就跳过
+  input.addEventListener('input', () => {
+    const kw = input.value.trim().toLowerCase();
+    document.querySelectorAll('.searchable').forEach(card => {
+      const txt = card.textContent.toLowerCase();
+      card.style.display = txt.includes(kw) ? '' : 'none';
+    });
+  });
+})();
+</script>
